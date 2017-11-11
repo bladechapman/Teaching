@@ -1,53 +1,59 @@
 # Curriculum
 
 - Variables & Types
-	- Types in Javascript
-	- Memory allocation
-	- References
-	- Deallocation
-	- Differences between allocated objects and primitives
+    - Types in Javascript
+    - Memory allocation
+    - References
+    - Deallocation
+    - Differences between allocated objects and primitives
+
+- Operators
+    - Arithmetic
+    - Boolean logic
+        - And
+        - Or
+        - Modulo
 
 - Expressions & Statements
-	- Difference b/w the two
-	- Boolean logic
+    - Difference b/w the two
 	
 - Conditions
-	- if / else
-	- boolean logic inside an if statement
-	- short-circuiting
-	
+    - if / else
+    - boolean logic inside an if statement
+    - short-circuiting
+    
 - Loops
-	- while
-	- for
-	- do / while
-	
+    - while
+    - for
+    - do / while
+    
 - Collections
-	- Arrays (1D and 2D)
-	- Hashes
-	- Memory allocation of collections
-	- References in collections
-	- Syntax
+    - Arrays (1D and 2D)
+    - Hashes
+    - Memory allocation of collections
+    - References in collections
+    - Syntax
 
 - Functions, Methods, Classes
-	- Procedural abstraction, encapsulation
-	- Making classes
-	- Instantiating classes
-	- Static methods, static variables
-	- Returns
-	- Inheritance
-	- Private vs. Public
-	- Definint getters, setters
-	- Overriding, polymorphism
-	- Prototypal Inheritance
-	
+    - Procedural abstraction, encapsulation
+    - Making classes
+    - Instantiating classes
+    - Static methods, static variables
+    - Returns
+    - Inheritance
+    - Private vs. Public
+    - Definint getters, setters
+    - Overriding, polymorphism
+    - Prototypal Inheritance
+    
 - Algorithms
-	- Recursion
-	- The 4 step feedback loop
-	- Diagraming algorithms
-	- Exercises
-		- Searching
-		- Linked Lists
-		- Sorting
-	- Understanding algorithmic performance
+    - Recursion
+    - The 4 step feedback loop
+    - Diagraming algorithms
+    - Exercises
+        - Searching
+        - Linked Lists
+        - Sorting
+    - Understanding algorithmic performance
 
 

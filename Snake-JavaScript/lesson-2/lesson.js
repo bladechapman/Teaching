@@ -66,7 +66,7 @@ function moveApple(){
 
 // mySnake.grow()
 
-let endGame = startGame(renderCycle, 500);
+let endGame = startGame(renderCycle, 100);
 
 // function ageCalculator2(day, month, year){
 //   if(month>12 || month<1 || day>31 || day<1){
