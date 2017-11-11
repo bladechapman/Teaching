@@ -10,7 +10,50 @@ function renderCycle() {
     mySnake.render();
     myApple.render();
     growSnakeIfOverApple();
+    if(reachBoundary()==true){
+        endGame();
+        gameOver();
+    }
+    if(hitBody()==true){
+        endGame();
+        gameOver();
+    }
 }
+
+function reachBoundary(){
+    if(mySnake.headX==0 || mySnake.headY==0 || mySnake.headX==50 || mySnake.headY==50){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+// Arrays
+// ======
+//
+// Create a new array:
+// var secondWay = new Array();
+// var firstWay = [];
+//
+// Getting values out of an array
+// var myArray = [1, 2, 3];
+// var secondElement = myArray[1];  // secondElement = 2
+//
+// Arrays can contain multiple types of values
+// var weirdArray = [1, "a", false]
+function hitBody(){
+    var body = mySnake.body;
+     headX=body[0][0]
+     headY=body[0][1]
+
+     for(i=1; i<body.length; i++){
+        if(headX==body[i][0] && headY==body[i][1]){
+            return true;
+        }
+     }
+     return false;
+}
+
 
 
 // ************** PREVIOUS LESSONS **************
@@ -20,12 +63,16 @@ document.addEventListener('keydown', function (event) {
 
     // End the game if the snake goes back on itself
     if (mySnake.direction === Snake.SOUTH && keyName === "ArrowUp") {
+        endGame();
         gameOver();
     } else if (mySnake.direction === Snake.NORTH && keyName === "ArrowDown") {
+        endGame();
         gameOver();
     } else if (mySnake.direction === Snake.EAST && keyName === "ArrowLeft") {
+        endGame();
         gameOver();
     } else if (mySnake.direction === Snake.WEST && keyName === "ArrowRight") {
+        endGame();
         gameOver();
     }
 
@@ -44,19 +91,11 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-function renderCycle() {
-    clearBoard();
-    mySnake.move();
-    mySnake.render();
-    myApple.render();
-    growSnakeIfOverApple();
-}
-
 function growSnakeIfOverApple() {
     if (snakeHeadOverApple() === true) {
         mySnake.grow();
         moveApple();
-    } 
+    }
 }
 
 function snakeHeadOverApple() {
@@ -67,15 +106,6 @@ function snakeHeadOverApple() {
         return false;
     }
 }
-
-function renderCycle() {
-    clearBoard();
-    mySnake.move();
-    mySnake.render();
-    myApple.render();
-    growSnakeIfOverApple();
-}
-
 
 function moveApple() {
   myApple.x = parseInt(Math.random() * 50);
