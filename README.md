@@ -16,17 +16,17 @@
 
 - Expressions & Statements
     - Difference b/w the two
-	
+
 - Conditions
     - if / else
     - boolean logic inside an if statement
     - short-circuiting
-    
+
 - Loops
     - while
     - for
     - do / while
-    
+
 - Collections
     - Arrays (1D and 2D)
     - Hashes
@@ -45,7 +45,7 @@
     - Definint getters, setters
     - Overriding, polymorphism
     - Prototypal Inheritance
-    
+
 - Algorithms
     - Recursion
     - The 4 step feedback loop
@@ -55,5 +55,3 @@
         - Linked Lists
         - Sorting
     - Understanding algorithmic performance
-
-
