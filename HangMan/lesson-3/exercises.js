@@ -80,3 +80,30 @@ let Reset = "\x1b[0m"
 console.log(`Insertion Sort ${FgCyan}${insertionSort([5,3,2,8,4,9,0,1])}${Reset}`);
 console.log(`Selection Sort ${FgCyan}${selectionSort([5,3,2,8,4,9,0,1])}${Reset}`);
 console.log(`Merge Sort ${FgCyan}${mergeSort([5,3,2,8,4,9,0,1])}${Reset}`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function iterateWords2(words) {
+//     if (words[0] === 3) return;
+
+//     for (var i= 0; i < words.length; i++) {
+//         for (var j = 0; j < words.length; j++) {
+//             BLACK BOX
+//         }
+//     }
+// }
+

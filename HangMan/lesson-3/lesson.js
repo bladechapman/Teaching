@@ -42,6 +42,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 })
+
 console.log(chosenWord)
 rl.question('Choose a letter', function (response){
 console.log(response)
