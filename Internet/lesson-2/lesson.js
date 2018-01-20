@@ -1,0 +1,75 @@
+const fs = require('fs');
+const http = require('http');
+const hostname = 'localhost';
+const port = 3000;
+
+const server = http.createServer(function (request, response) {
+
+    debugger
+
+    var body = '';
+    request.on('data', function(data) {
+        body += data;
+    });
+
+    request.on('end', function() {
+        debugger
+
+        // We need to reference body within this enclosed function!
+        // Otherwise, the interpreter will remove it!
+        body;
+
+        if (request.method === "GET" &&
+            request.url === "/testPage") {
+
+            serveTestPage(response);
+        }
+        else if (request.method === "GET" &&
+            request.url === '/snake') {
+
+            serveSnakeHtml(response);
+        }
+        else if (request.method === "GET" &&
+            request.url === '/snake.js') {
+
+            serveSnakeLib(response);
+        }
+        else if (request.method === "GET" &&
+            request.url === '/lesson.js') {
+
+            serveSnakeMain(response);
+        }
+        else {
+            response.statusCode = 404;
+            response.end("Didn't do anything");
+        }
+    });
+});
+
+function serveTestPage(response) {
+    response.statusCode = 200;
+    response.setHeader('Content-Type', 'text/html');
+    fs.createReadStream('./testpage.html').pipe(response);
+}
+
+function serveSnakeHtml(response) {
+    response.statusCode = 200;
+    response.setHeader('Content-Type', 'text/html');
+    fs.createReadStream('./snake/snake.html').pipe(response);
+}
+
+function serveSnakeLib(response) {
+    response.statusCode = 200;
+    response.setHeader('Content-Type', 'text/javascript');
+    fs.createReadStream('./snake/snake.js').pipe(response);
+}
+
+function serveSnakeMain(response) {
+    response.statusCode = 200;
+    response.setHeader('Content-Type', 'text/javascript');
+    fs.createReadStream('./snake/lesson.js').pipe(response);
+}
+
+server.listen(port, hostname, function () {
+    console.log(`Server listening at ${hostname}:${port}`);
+});
