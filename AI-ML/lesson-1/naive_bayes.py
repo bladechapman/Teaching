@@ -11,6 +11,10 @@ def get_data(filename):
 
     return parsed_data
 
+def partition_data(data):
+    partition_index = int(len(data) * 0.8)
+    return (data[:partition_index], data[partition_index:])
+
 def calculate_priors(data):
     label_index = categories.index('class')
     label_priors = {}
@@ -27,7 +31,6 @@ def calculate_priors(data):
 
 def calculate_gaussian(column):
     return (numpy.std(column), numpy.mean(column))
-
 
 def calculate_distributions(data, priors):
     labels = priors.keys()
@@ -49,12 +52,17 @@ def classify(priors, gaussians, datum):
         likelihood = prior * product
         likelihoods.append(likelihood)
 
-    return likelihoods
+    return likelihoods.index(max(likelihoods))
+
+def test(priors, gaussians, validation_data):
+    results = [classify(priors, gaussians, datum) == datum[-1:][0] for datum in validation_data]
+    return (sum(results) * 1. / len(results))
 
 
 data = get_data('./data/diabetes.txt')
-priors = calculate_priors(data)
-gaussians = calculate_distributions(data, priors)
-print(classify(priors, gaussians, data[1]))
-print(data[1][-1:])
+training_data, validation_data = partition_data(data)
 
+priors = calculate_priors(training_data)
+gaussians = calculate_distributions(training_data, priors)
+
+print("%d percent accuracy" % (test(priors, gaussians, validation_data) * 100))

@@ -72,4 +72,10 @@ function serveSnakeMain(response) {
 
 server.listen(port, hostname, function () {
     console.log(`Server listening at ${hostname}:${port}`);
+
+    for (var i = 0; i < 5; i++) {
+        if (i === 3) {
+            debugger
+        }
+    }
 });
