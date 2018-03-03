@@ -6,10 +6,28 @@
  * @returns {Boolean}
  */
 function binarySearch(arr, target) {
-    throw new Error("Implement me!");
+    let midIndex = parseInt(arr.length/2)
+    let midNumber =arr[midIndex]
+   	if(arr.length==0){
+   		return false
+   	}
+
+
+    if(midNumber==target){
+    	return true;
+    }else{
+    if(midNumber<target){
+    	let rightHalf = arr.slice(midIndex+1)
+    	return binarySearch(rightHalf, target)
+    }else{
+    	let leftHalf = arr.slice(0, midIndex)
+    	return binarySearch(leftHalf, target)
+    }
+    }
+
 }
 
-let someNumbers = [1, 9, 5, 2, 8, 3];
+let someNumbers = [1, 2, 3, 5, 8, 9];
 console.log(binarySearch(someNumbers, 9));
 console.log(binarySearch(someNumbers, 100));
 
@@ -29,5 +47,5 @@ let testArray = [
     [3, 4],
     [5, 6]
 ];
-console.log(rotateClockwise(testArray));
+//console.log(rotateClockwise(testArray));
 

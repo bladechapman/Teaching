@@ -6,7 +6,7 @@
  * @returns {Boolean}
  */
 function binarySearch(arr, target) {
-    throw new Error("Implement me!");
+    //throw new Error("Implement me!");
 }
 
 let someNumbers = [1, 9, 5, 2, 8, 3];
@@ -21,7 +21,20 @@ console.log(binarySearch(someNumbers, 100));
  * @returns {Array<Array<Number>>} the rotated image
  */
 function rotateClockwise(arr) {
-    throw new Error("Implement me!")
+   let result = new Array (arr[0].length)
+
+	for(let i=0; i<result.length; i++){
+		let subArray = new Array(arr.length)
+		result[i]=subArray;
+	}
+	for(let i=0; i<arr.length; i++){
+		for(let j=0; j<arr[0].length; j++){
+			let n = arr[i][j];
+			result[j][arr.length-i-1]=n;
+		}
+	}
+	return result;
+
 }
 
 let testArray = [
