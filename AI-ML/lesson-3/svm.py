@@ -27,8 +27,8 @@ def descent(x, y, w, b, l, means=None, stds=None, rate=1):
 
     # mean and std have already been applied if applicable
     if (hingeLoss(x, y, w, b) != 0):
-        delta_w = rate * -y * x
-        delta_b = rate * -y
+        delta_w = rate * (-y * x)
+        delta_b = rate * (-y)
 
     return ((delta_w) + (l * w), delta_b)
 
