@@ -6,3 +6,5 @@ AI/ML Book: http://luthuli.cs.uiuc.edu/~daf/courses/LearningCourse17/learning-bo
 Support Vector Machine Video: https://www.youtube.com/watch?v=eUfvyUEGMD8
 
 Hinge Loss: https://en.wikipedia.org/wiki/Hinge_loss
+
+Real-Life applications of SVMs: https://data-flair.training/blogs/applications-of-svm/
