@@ -41,21 +41,27 @@ for(let i=0; i<cleanData.length; i++){
 	}
 }
 function findDistribution(samples, conditionNumber){
-
 	let condition = new Array()
 	for(let i=0; i<samples.length; i++){
 		condition.push(samples[i][conditionNumber])
 	}
 	return buildNormalDistribution(condition)
 }
-let distributionsFor1 = new Array()
-for(let i =0; i<samplesWith1.length; i++){
-	distributionsFor1.push(findDistribution(samplesWith1, i))}
 
-let distributionsFor0 = new Array()
-for(let i =0; i<samplesWith0.length; i++){
-	distributionsFor0.push(findDistribution(samplesWith0,i))
+
+let distributionsFor1 = new Array()
+for (let i = 0; i < samplesWith1[0].length; i++) {
+	distributionsFor1.push(findDistribution(samplesWith1, i))
 }
+
+// for(let i =0; i<samplesWith1.length; i++){
+// 	distributionsFor1.push(findDistribution(samplesWith1, i))
+// }
+
+// let distributionsFor0 = new Array()
+// for(let i =0; i<samplesWith0.length; i++){
+// 	distributionsFor0.push(findDistribution(samplesWith0,i))
+// }
 
 
 function test(sample){
