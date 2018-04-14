@@ -1,0 +1,71 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+
+char* retrieveInput() {
+    char* buffer = NULL;
+    size_t size = 0;
+
+    getline(&buffer, &size, stdin);
+
+    return buffer;
+}
+
+char** splitStr(char* str, char splitChar) {
+    int numSplits = 0;
+    size_t length = strlen(str);
+
+    // determine the number of splits, so we can allocate memory
+    for (int i = 0; i < (int)length; i++) {
+        char currentCharacter = str[i];
+        if (currentCharacter == splitChar) {
+            numSplits += 1;
+        }
+    }
+
+    // allocate a large enough array
+    char **ret = malloc(sizeof(*ret) * numSplits);
+    int currentSplit = 0;
+    int lowerBound = 0;
+    for (int i = 0; i < (int)length; i++) {
+
+
+
+        char currentCharacter = str[i];
+        if (currentCharacter == splitChar) {
+            int upperBound = i;
+
+            // copy in character values
+            char *split = malloc(sizeof(*split) * (upperBound - lowerBound + 1));
+            for (int j = lowerBound; j <= upperBound; j++) {
+                split[j - lowerBound] = str[j];
+            }
+            split[upperBound + 1] = '\0';
+
+            // add to ret
+            ret[currentSplit] = split;
+            currentSplit += 1;
+        }
+    }
+
+    return ret;
+}
+
+char* subStr(char* str, int startIndex, int endIndex) {
+
+    return "test";
+}
+
+int main(int argc, char** argv) {
+
+    while(1) {
+        char *str = retrieveInput();
+        char **splits = splitStr(str, ' ');
+        printf("%s", str);
+
+        printf("%s", splits[0]);
+    }
+
+    return 0;
+}
