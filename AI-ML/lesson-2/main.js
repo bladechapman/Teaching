@@ -50,8 +50,12 @@ function findDistribution(samples, conditionNumber){
 
 
 let distributionsFor1 = new Array()
-for (let i = 0; i < samplesWith1[0].length; i++) {
-	distributionsFor1.push(findDistribution(samplesWith1, i))
+for(let i =0; i<samplesWith1[0].length-1; i++){
+	distributionsFor1.push(findDistribution(samplesWith1, i))}
+
+let distributionsFor0 = new Array()
+for(let i =0; i<samplesWith0[0].length -1; i++){
+	distributionsFor0.push(findDistribution(samplesWith0,i))
 }
 
 // for(let i =0; i<samplesWith1.length; i++){
@@ -79,5 +83,16 @@ function test(sample){
 	 }else{
  		return 1;
 	 }
+
+}
+function testEverything(data){
+	let nCorrect = 0;
+	
+	for(let i=0; i<data.length-1; i++){
+		if(test(data[i])==data[i][8]){
+			nCorrect=nCorrect+1
+		}
+	}
+	return nCorrect/data.length
 
 }	

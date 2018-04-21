@@ -5,5 +5,9 @@ void addOneToRef(int* number) {
 }
 
 int addNumbers(int* numbers, int count) {
-    return 0;
+    int sum = 0;
+    for(int i=0; i<count; i++){
+    	sum = sum + numbers[i];
+    }
+    return sum;
 }
