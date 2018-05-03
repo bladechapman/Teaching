@@ -22,6 +22,14 @@ char* ls(){
 }
 
 int main(int argc, char** argv) {
+
+
+    char** pieces = splitString("hello world hi", ' ');
+    printf("%d\n", strcmp("hello", pieces[0]));
+
+
+
+
     // printf("%s\n", splitString("hello world hi", ' ')[2]);
 
 /*    char** myStrings = splitString("hello world hi", ' ');
@@ -50,7 +58,7 @@ int main(int argc, char** argv) {
     //         }
     //     }
     // }
-    printf("%s\n", ls());
+    /* printf("%s\n", ls()); */
     //
     // typedef int myInt;
     // myInt crazyStuff = 0;
