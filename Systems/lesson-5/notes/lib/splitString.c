@@ -8,7 +8,7 @@ char* rangeCopy(char* input, int i, int j) {
     char* newStart = &input[i];
 
     strncpy(dest, newStart, j - i);
-    dest[i] = '\0';
+    dest[j] = '\0';
 
     return dest;
 }
@@ -26,21 +26,21 @@ int countChars(char* input, char target) {
 }
 
 char** splitString(char* input, char splitChar) {
-    int j = 0;
     int i = 0;
+    int j = 0;
 
     const int spaceCount = countChars(input, splitChar);
 
     int arrayLocation = 0;
     char** array = malloc((spaceCount + 1) * sizeof(char*));
-    for(; i < strlen(input); i++) {
-        if(input[i] == ' ') {
-            array[arrayLocation] = rangeCopy(input, j, i);
+    for(; j < strlen(input); j++) {
+        if(input[j] == ' ') {
+            array[arrayLocation] = rangeCopy(input, i, j);
             arrayLocation += 1;
-            j = i + 1;
+            i = j + 1;
         }
     }
-    array[arrayLocation] = rangeCopy(input, j, i);
+    array[arrayLocation] = rangeCopy(input, i, j);
     return array;
 }
 

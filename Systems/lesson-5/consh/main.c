@@ -9,6 +9,7 @@ char* retrieveInput() {
     size_t size = 0;
 
     getline(&buffer, &size, stdin);
+    buffer[strlen(buffer) - 1] = '\0';  // overwrite the newline character
 
     return buffer;
 }
@@ -22,9 +23,11 @@ char* ls(){
 }
 
 int main(int argc, char** argv) {
-    char* result = ls();
+    char** pieces = splitString("hello world hi", ' ');
+    printf("%d\n", strcmp("hello", pieces[0]));
 
-    printf("%s\n", result);
+    char *output = ls();
+    printf("%s\n", output);
 
     return 0;
 }

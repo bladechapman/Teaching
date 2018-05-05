@@ -77,8 +77,16 @@ void consh_folder_print(consh_folder *folder) {
 }
 
 int main(int argc, char** argv) {
-    consh_folder *folder = ls();
-    consh_folder_print(folder);
-    consh_folder_free(folder);
+    while(1) {
+        char *input = retrieveInput();
+        input[strlen(input) - 1] = '\0';
+        char **splits = splitString(input, ' ');
+
+        if (strcmp(splits[0], "ls") == 0) {
+            consh_folder *folder = ls();
+            consh_folder_print(folder);
+        }
+    }
+
     return 0;
 }
