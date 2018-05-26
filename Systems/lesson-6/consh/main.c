@@ -51,6 +51,7 @@ logHistory* logInit(char* entry){
 logHistory* addEntry (char* entry, logHistory* history){
 	entryLog* newEntry = createEntryLog(entry);
 	history->last->next = newEntry;
+	history->last = newEntry;
 	return history; 
 }
 
@@ -67,20 +68,35 @@ void printLog (entryLog* currentEntry){
 
 int main(int argc, char** argv) {
 
-	logHistory* history = logInit("hi");
-	addEntry("hello", history);
-	printLog(history->first);
+	// logHistory* history = logInit("hi");
+	// addEntry("hello", history);
+	// printLog(history->first);
+	int x = 0;
+	logHistory* history;
+    while(1) {
+    	char *input = retrieveInput();
+    	input[strlen(input) - 1] = '\0';
+        char **splits = splitString(input, ' ');
+        
 
-    // while(1) {
-    //     char *input = retrieveInput();
-    //     input[strlen(input) - 1] = '\0';
-    //     char **splits = splitString(input, ' ');
+        if(x==0){
+        	history = logInit(input);
+        	x+=1;
+        }else{
+        	 addEntry(input, history);
+        }
+        
 
-    //     if (strcmp(splits[0], "ls") == 0) {
-    //         consh_folder *folder = ls();
-    //         consh_folder_print(folder);
-    //     }
-    // }
 
+        if (strcmp(splits[0], "ls") == 0) {
+            consh_folder *folder = ls();
+            consh_folder_print(folder);
+        }else if(strcmp(splits[0], "!") == 0) {
+        	printf("----\n");
+        	printLog(history->first);
+        }
+    
+	}
     return 0;
 }
+
