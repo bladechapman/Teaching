@@ -2,9 +2,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <dirent.h>
+#include <signal.h>
 
 #include "lib/splitString.h"
 #include "lib/conshLs.h"
+#include "lib/log.h"
 
 char* retrieveInput() {
     char* buffer = NULL;
@@ -15,72 +17,34 @@ char* retrieveInput() {
     return buffer;
 }
 
-typedef struct _entryLog {
-	char* entry;
-	struct _entryLog* next;
-} entryLog;
+/* void sigintHandler (int signum) { */
+/*     printf("Ending... %d\n", signum); */
 
-
-typedef struct _logHistory {
-	entryLog* first;
-	entryLog* last;
-} logHistory;
-
-entryLog* createEntryLog(char* input){
-	entryLog* newEntry= malloc(sizeof(entryLog));
-	newEntry->entry = input;
-	newEntry->next = NULL;
-	return newEntry;
-}
-
-logHistory* createLogHistory(){
-	logHistory* history= malloc(sizeof(logHistory));
-	history->first = NULL;
-	history->last = NULL;
-	return history;
-}
-
-logHistory* logInit(char* entry){
-	logHistory* log = createLogHistory();
-	entryLog* newEntry = createEntryLog(entry);
-	log->first = newEntry;
-	log->last = newEntry;
-	return log;
-}
-
-logHistory* addEntry (char* entry, logHistory* history){
-	entryLog* newEntry = createEntryLog(entry);
-	history->last->next = newEntry;
-	return history; 
-}
-
-void printLog (entryLog* currentEntry){
- 	if(currentEntry==NULL){
-
- 	}else{
- 		printf("%s\n", currentEntry->entry );
-	 	entryLog *nextEntry = currentEntry->next;
-	 	printLog(nextEntry);
- 	}
- 	// entry = entry->next 
-}
+/*     exit(signum); */
+/* }; */
 
 int main(int argc, char** argv) {
+    log *logInstance = createLog();
 
-	logHistory* history = logInit("hi");
-	addEntry("hello", history);
-	printLog(history->first);
+    /* signal(SIGINT, sigintHandler); */
 
-    // while(1) {
-    //     char *input = retrieveInput();
-    //     input[strlen(input) - 1] = '\0';
-    //     char **splits = splitString(input, ' ');
+    while(1) {
+        char *input = retrieveInput();
+        input[strlen(input) - 1] = '\0';
+        char **splits = splitString(input, ' ');
 
-    //     if (strcmp(splits[0], "ls") == 0) {
-    //         consh_folder *folder = ls();
-    //         consh_folder_print(folder);
-    //     }
-    // }
+        if (strcmp(splits[0], "ls") == 0) {
+            consh_folder *folder = ls();
+            consh_folder_print(folder);
+        }
+        else if (strcmp(splits[0], "!") == 0) {
+            printLog(logInstance);
+        }
+
+        addToLog(input, logInstance);
+    }
 
     return 0;
 }
+
+
