@@ -174,6 +174,9 @@ class Rect: Shape {
     }
 }
 
+let myRectangle = Rect(sideLength: 5)
+print(myRectangle.getArea())
+
 // Enums
 enum MyEnum {
     case Me
