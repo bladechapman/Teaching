@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -39,14 +38,18 @@
                                 <state key="normal" title="Set Default Label Text"/>
                                 <connections>
                                     <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aBJ-yZ-3w3"/>
+                                    <action selector="setDefaultLabelTextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nb8-mG-KlU"/>
+                                    <action selector="setDefaultLabelTextButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bu9-KT-GNw"/>
+                                    <action selector="setDefaultLabelTextButtonActionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KKI-Ud-IXT"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="JYv-Xg-cvb">
-                                <rect key="frame" x="27" y="327" width="320" height="320"/>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="JYv-Xg-cvb">
+                                <rect key="frame" x="27.033566862107591" y="327" width="320" height="320"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JYv-Xg-cvb" secondAttribute="height" multiplier="1:1" id="Zo9-8O-FMt"/>
                                 </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="bEX-6D-09S" appends="YES" id="7cy-a3-x0f"/>
                                 </connections>
@@ -62,7 +65,6 @@
                         <outlet property="mealNameLabel" destination="PYj-a5-hRz" id="uub-sk-md7"/>
                         <outlet property="nameTextField" destination="8jI-Tj-XMX" id="Lcx-NA-d5e"/>
                         <outlet property="photoImageView" destination="JYv-Xg-cvb" id="PP2-pj-bYa"/>
-                        <outlet property="selectImageFromPhotoLibrary" destination="bEX-6D-09S" id="hr2-zX-gPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

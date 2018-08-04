@@ -1,38 +1,43 @@
 //
 //  ViewController.swift
-//  firstapp
+//  mealtracker
 //
-//  Created by Blade Chapman on 7/8/18.
+//  Created by Blade Chapman on 8/3/18.
 //  Copyright © 2018 Blade Chapman. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController:
+    UIViewController,
+    UITextFieldDelegate,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate {
 
-    // MARK: Properties
-    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var mealNameLabel: UILabel!
+    @IBOutlet weak var enterMealTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameTextField.delegate = self
+        self.enterMealTextField.delegate = self
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        mealNameLabel.text = textField.text
+        let textFieldText = textField.text
+        mealNameLabel.text = (textFieldText != "")
+            ? textFieldText
+            : "Meal Name"
     }
-    
-    
-    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
-        nameTextField.resignFirstResponder()
+
+    @IBAction func photoImageViewWasTapped(_ sender: UITapGestureRecognizer) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imagePickerController.delegate = self
@@ -44,13 +49,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
-            fatalError("Expected dictionary containing image, but was provided with the following \(info)")
+        
+        guard let selectedMedia = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but the following was provided: \(info)")
         }
         
-        photoImageView.image = selectedImage
-        dismiss(animated: true, completion: nil)
-        
+        photoImageView.image = selectedMedia
+        self.dismiss(animated: true, completion: nil)
     }
+    
 }
 
