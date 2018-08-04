@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  mealtracker
-//
-//  Created by Blade Chapman on 8/3/18.
-//  Copyright © 2018 Blade Chapman. All rights reserved.
-//
-
 import UIKit
 
 class ViewController:
