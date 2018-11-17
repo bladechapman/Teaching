@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3fI-Ms-aQV">
-                                <rect key="frame" x="16" y="24" width="423" height="30"/>
+                                <rect key="frame" x="16" y="104" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7Sh-ey-eHa"/>
                                 </constraints>
@@ -90,7 +90,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="gh2-Ok-n7w">
-                                <rect key="frame" x="67" y="102" width="320" height="320"/>
+                                <rect key="frame" x="67" y="182" width="240" height="240"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gh2-Ok-n7w" secondAttribute="height" multiplier="1:1" id="LmK-5o-AWd"/>
@@ -187,6 +187,6 @@
         <image name="defaultPhoto" width="320" height="320"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CWh-PW-a3J"/>
+        <segue reference="BwW-R7-vaD"/>
     </inferredMetricsTieBreakers>
 </document>

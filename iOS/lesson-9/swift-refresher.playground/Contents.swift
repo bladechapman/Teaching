@@ -15,10 +15,10 @@ else {
 func getSomeOptionalValue() -> AnyObject? {
     return nil
 }
-//guard let someValue = getSomeOptionalValue() else {
-//    print ("some value was null!")
-//    throw  // guard statements cannot fall through
-//}
+guard let someValue = getSomeOptionalValue() else {
+    print ("some value was null!")
+    throw  // guard statements cannot fall through
+}
 
 //guard let someValue = getSomeOptionalValue() as? AnyObject else {
 //    "hmmm"
