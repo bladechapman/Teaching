@@ -64,4 +64,41 @@ public class CheckPassword {
             System.out.println("The password is invalid");
         }
     }
+    public static boolean checkAPassword (String password, int minLength, int minCapitalLetter, int minNumber, int minSpecial) {
+    	int countCapitalLetter = 0;
+    	int countSpecial = 0;
+    	int countNumber = 0;
+    	for(int i =0; i<password.length(); i++)
+    	{
+    		if(CheckPassword.checkCharInString(CAPITAL_LETTERS, password, i)) {
+    			countCapitalLetter = countCapitalLetter + 1;
+    		}
+    		if(password.length()<minLength) {
+    			return false;
+    		}
+    		if(CheckPassword.checkCharInString(SPECIAL, password, i)) {
+    			countSpecial= countSpecial + 1;
+    		}
+    		if(CheckPassword.checkCharInString(NUMBERS, password, i)) {
+    			countNumber =countNumber + 1;
+    		}
+    	}
+    	if(countCapitalLetter<minCapitalLetter) {
+    		return false;
+    	}
+    	if(countSpecial < minSpecial) {
+    		return false;
+    	}
+    	if(countNumber < minNumber) {
+    		return false;
+    	}
+    	return true;
+    }
+   public static boolean checkCharInString (String Reference, String Test, int charIndex) {
+	   if(Reference.indexOf(Test.charAt(charIndex))!= -1) {
+		   return true;
+	   }else {
+		   return false;
+	   }
+   }
 }
